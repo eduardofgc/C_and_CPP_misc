@@ -1,1 +1,3 @@
-Exercicios e projetos para praticar C++
+C++ eh dificil :(
+
+socials: @eduardo_wa7
