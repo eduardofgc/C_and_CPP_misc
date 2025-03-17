@@ -1,13 +1,31 @@
 #include <iostream>
 
-class Dog{
+class Animal{
+    public:
+        bool isAlive;
+
+        void eat(){
+            std::cout << "chomp\n";
+        }
+
+        virtual void fazer_som(){ //polimorfismo
+            std::cout << "som generico\n";
+        }
+
+        Animal(bool isAlive){ //CONSTRUTOR CLASSE PAI
+            this->isAlive = isAlive;
+        }
+
+};
+
+class Dog : public Animal{
     public:
         std::string name;
         std::string breed;
         std::string gender;
         int age;
 
-        void bark(){
+        void fazer_som() override { //polimorfismo
             std::cout << "woof\n";
         }
 
@@ -17,7 +35,7 @@ class Dog{
             return day_age;
         }
 
-        Dog(std::string name, std::string breed, std::string gender, int age){
+        Dog(bool isAlive, std::string name, std::string breed, std::string gender, int age) : Animal(isAlive){ //CHAMA CONSTRUTOR DA CLASSE PAI DENTRO DA CLASSE FILHO
             this->name = name;
             this->breed = breed;
             this->gender = gender;
@@ -34,10 +52,13 @@ int main (){
     std::cin >> genero;
     std::cin >> idade;
 
-    Dog spike(nome, raca, genero, idade);
+    Dog spike(true, nome, raca, genero, idade);
 
-    spike.bark();
+    spike.fazer_som();
     std::cout << spike.months_alive(spike) << "\n";
+
+    spike.eat();
+    std::cout << spike.isAlive << "\n";
 
     return 0;
 }
