@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <windows.h>
 
 const int height = 20;
 const int width = 20;
@@ -63,24 +64,67 @@ void Draw(){
     std::cout << "\n";
 }
 
-void Simulate(){
+void Simulate(){ //handles user input via keyboard
 
-    if (_kbhit){ //part of conio.h, detects if key is pressed
+    if (_kbhit() == true){ //part of conio.h, detects if key is pressed
+
         switch(_getch()){ //gets the ascii table value of pressed char
 
+            case 'a':
+                dir = LEFT;
+                break;
+
+            case 'd':
+                dir = RIGHT;
+                break;
+
+            case 'w':
+                dir = UP;
+                break;
+
+            case 's':
+                dir = DOWN;
+                break;
+
+            case 'x':
+                endGame = true;
+                break;
         }
     }
 }
 
 void Logic(){
+    switch (dir){
+        case LEFT:
+            y--;
+            break;
 
+        case RIGHT:
+            y++;
+            break;
+
+        case UP:
+            x--;
+            break;
+
+        case DOWN:
+            x++;
+            break;
+    }
 }
 
 int main(){
     srand(time(NULL));
-    
+
     Setup();
-    Draw();
+    
+    while (endGame == false){
+        Draw();
+        Simulate();
+        Logic();
+
+        Sleep(1);
+    }
 
     return 0;
 }
