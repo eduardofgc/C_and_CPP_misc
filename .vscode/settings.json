@@ -52,5 +52,5 @@
         "variant": "cpp",
         "cstring": "cpp"
     },
-    "editor.fontFamily": "JetBrains Mono Regular,  'Courier New', monospace"
+    "editor.fontFamily": "JetBrains Mono,  'Courier New', monospace"
 }
