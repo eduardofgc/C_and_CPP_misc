@@ -1,10 +1,9 @@
 #include <iostream>
 #include <conio.h>
-#include <windows.h>
 
 const int height = 20;
 const int width = 20;
-int x, y, fruit_x, fruit_y, score;
+int x, y, fruit_x, fruit_y, score = 0;
 enum Direct {STOP = 0, UP, DOWN, LEFT, RIGHT};
 Direct dir;
 
@@ -20,8 +19,6 @@ void Setup(){
 
     fruit_x = rand() % width;
     fruit_y = rand() % height;
-
-    score = 0;
 }
 
 void Draw(){
@@ -62,11 +59,13 @@ void Draw(){
     }
 
     std::cout << "\n";
+
+    std::cout << "score: " << score;
 }
 
 void Simulate(){ //handles user input via keyboard
 
-    if (_kbhit() == true){ //part of conio.h, detects if key is pressed
+    if (_kbhit){ //part of conio.h, detects if key is pressed
 
         switch(_getch()){ //gets the ascii table value of pressed char
 
@@ -111,6 +110,16 @@ void Logic(){
             x++;
             break;
     }
+
+    if (x > width || x < 0 || y > height ||y < 0){ //ends if out of bounds
+        endGame = true;
+    }
+    else if (x == fruit_x && y == fruit_y){ //if eats fruit
+        score++;
+
+        fruit_x = rand() % width;
+        fruit_y = rand() % height;
+    }
 }
 
 int main(){
@@ -118,12 +127,10 @@ int main(){
 
     Setup();
     
-    while (endGame == false){
+    while (!endGame){
         Draw();
         Simulate();
         Logic();
-
-        Sleep(1);
     }
 
     return 0;
