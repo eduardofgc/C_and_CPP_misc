@@ -1,3 +1,1 @@
-C++ eh dificil :(
-
-socials: @eduardo_wa7
+small projects and exercises
