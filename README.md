@@ -1,3 +1,3 @@
 small projects and exercises
 
-this is really dumb
+really amateur code
