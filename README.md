@@ -1,3 +1,3 @@
 small projects and exercises
 
-really amateur code
+really bad code
