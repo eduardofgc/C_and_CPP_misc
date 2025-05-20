@@ -68,7 +68,7 @@ void deleteElem(Lista* minhaLista, int num){
         referenceNode = referenceNode->prox;
         cont++;
 
-        if (cont == 100 || referenceNode->prox == NULL){
+        if (cont == 100000 || referenceNode->prox == NULL){
             printf("elemento n existe\n");
             break;
         }
