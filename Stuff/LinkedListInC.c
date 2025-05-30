@@ -1,5 +1,3 @@
-//i didnt know you could do linked lists without oop. i guess methods and constructors really are totally optional
-
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,7 +1,3 @@
-//array dinamico: um array que muda de tamanho conforme sao adicionados elementos, para comportar todos eles.
-//isso pode ser feito criando um novo endereço de memoria para um novo array com capacidade aumentada, movendo todos os 
-//elementos do array antigo para o array novo, e depois liberando a memoria referente ao array antigo.
-
 #include <iostream>
 
 class DinamicArray{

@@ -12,7 +12,6 @@ bool endGame;
 void Setup(){
     endGame = false;
 
-    //starting xpos & ypos
     x = width/2;
     y = height/2;
     dir = STOP;
@@ -22,9 +21,8 @@ void Setup(){
 }
 
 void Draw(){
-    system("cls"); //clear screen on cmd
+    system("cls");
 
-    //ceiling
     for (int i = 0; i < width; i++){
         std::cout << "-";
     }
@@ -52,8 +50,6 @@ void Draw(){
         std::cout << "\n";
     }
 
-
-    //floor
     for (int i=0; i < width; i++){
         std::cout << "-";
     }
@@ -63,11 +59,11 @@ void Draw(){
     std::cout << "score: " << score;
 }
 
-void Simulate(){ //handles user input via keyboard
+void Simulate(){ 
 
-    if (_kbhit){ //part of conio.h, detects if key is pressed
+    if (_kbhit){ 
 
-        switch(_getch()){ //gets the ascii table value of pressed char
+        switch(_getch()){ 
 
             case 'a':
                 dir = LEFT;
@@ -111,10 +107,10 @@ void Logic(){
             break;
     }
 
-    if (x > width || x < 0 || y > height ||y < 0){ //ends if out of bounds
+    if (x > width || x < 0 || y > height ||y < 0){ 
         endGame = true;
     }
-    else if (x == fruit_x && y == fruit_y){ //if eats fruit
+    else if (x == fruit_x && y == fruit_y){ 
         score++;
 
         fruit_x = rand() % width;

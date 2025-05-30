@@ -1,5 +1,3 @@
-//eu nao achei nenhuma funcao pra debugar ent eu so fiz minha parada
-
 #include <iostream>
 
 void bubble_sort(int array[], int tamanho){
