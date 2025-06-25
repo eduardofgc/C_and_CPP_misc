@@ -9,13 +9,11 @@ typedef struct Node{
 
 typedef struct Tree{
     Node* root;
-    int height;
 } Tree; 
 
 Tree* createTree(){
     Tree* myTree = (Tree*)malloc(sizeof(Tree));
     myTree->root = NULL;
-    myTree->height = 0;
 
     return myTree;
 }
@@ -50,11 +48,46 @@ void createNode(Tree* myTree, int num){
             }
         }
     }
-    
-    myTree->height++;
+}
+
+Node* findNode(Tree* myTree, int num){
+    Node* referenceNode = myTree->root;
+    int cont = 0;
+
+    while (referenceNode != NULL && cont < 1000){
+        if (num > referenceNode->id){
+            referenceNode = referenceNode->right;
+        }
+        else if (num < referenceNode->id){
+            referenceNode = referenceNode->left;
+        }
+        else if (num == referenceNode->id){
+            break;
+        }
+
+        cont++;
+    }
+
+    return referenceNode;
 }
 
 int main(){
+    Tree* myTree = createTree();
+
+    int n, x;
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++){
+        scanf("%d", &x);
+        createNode(myTree, x);
+    }
+
+    scanf("%d", &x);
+
+    Node* myNode = findNode(myTree, x);
+    
+    if (myNode != NULL) printf("%d\n", myNode->id);
+    else printf("node not found\n");
 
     return 0;
 }
