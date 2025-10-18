@@ -1,5 +1,3 @@
-//mudar nomes de variaveis onde eles devem ser mudados (vide enunciado)
-
 int findJudge(int N, int trust[][2], int trustSize){
     int arrEx[N + 1], arrEx2[N + 1];
 
