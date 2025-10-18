@@ -27,7 +27,7 @@ int main(){
 
     for (int i = 0; i < TABLE_MAX; i++){
         userHashTable[i] = NULL;
-    }
+    } //userHashTable = {NULL}
 
     int n, x, val, cont;
     scanf("%d", &n);
