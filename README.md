@@ -4,9 +4,9 @@ Repositório com implementações, exercícios e material de apoio desenvolvidos
 
 ```
 .
-├── ED/         # Estruturas de dados comuns, reutilizadas ao longo dos exercícios
-├── Extra/      # Arquivos miscelâneos 
-└── Tutoria/    # Questões resolvidas na tutoria
+├── ED/
+├── Extra/
+└── Tutoria/
 ```
 
 ### `ED/`
